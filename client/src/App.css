@@ -1,0 +1,45 @@
+/* Existing styles */ 
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* New styles for the app structure */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Center main content vertically and horizontally */
+.main-content {
+  flex: 1;
+  margin: auto !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem !important;
+  /* background-color: #f9f9f9; */
+  width: 100%;
+  background-color: #E9F5BE;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 1rem;
+  }
+}
+
+/* Footer positioning (assuming you want it at the bottom) */
+.app > footer {
+  margin-top: auto;
+}

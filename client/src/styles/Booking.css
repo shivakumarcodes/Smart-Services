@@ -1,0 +1,266 @@
+/* Booking Portal Styles */
+.booking-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.booking-modal {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 550px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-out;
+  padding: 0 0 20px 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.booking-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 20px;
+}
+
+.booking-modal-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #ff4d4d;
+}
+
+/* Service Summary Styles */
+.service-summary {
+  display: flex;
+  margin: 0 20px 20px 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.service-thumbnail {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.service-info {
+  margin-left: 15px;
+  flex: 1;
+}
+
+.service-info h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+}
+
+.service-details {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.service-details p {
+  margin: 4px 0;
+}
+
+.provider-name {
+  font-style: italic;
+}
+
+.service-price {
+  font-weight: bold;
+  color: #2c7be5;
+}
+
+/* Form Styles */
+form {
+  padding: 0 20px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #2c7be5;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(44, 123, 229, 0.2);
+}
+
+.form-group small {
+  display: block;
+  margin-top: 5px;
+  color: #777;
+  font-size: 0.8rem;
+}
+
+/* Booking Summary */
+.booking-summary {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  margin: 20px 0;
+}
+
+.booking-summary h4 {
+  margin: 0 0 12px 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 0.95rem;
+}
+
+.summary-row.total {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ddd;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* Button Styles */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.cancel-btn,
+.confirm-btn {
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cancel-btn {
+  background: none;
+  border: 1px solid #ddd;
+  color: #555;
+}
+
+.cancel-btn:hover {
+  background-color: #f1f1f1;
+}
+
+.confirm-btn {
+  background-color: #2c7be5;
+  border: none;
+  color: white;
+}
+
+.confirm-btn:hover {
+  background-color: #1a68d1;
+}
+
+.confirm-btn:disabled {
+  background-color: #a0bfeb;
+  cursor: not-allowed;
+}
+
+/* Success/Error Message Styles */
+.booking-success {
+  background-color: #f0fff4;
+  color: #0a6e31;
+  padding: 20px;
+  text-align: center;
+  margin: 20px;
+  border-radius: 6px;
+  border-left: 4px solid #0a6e31;
+}
+
+.error-message {
+  background-color: #fff2f2;
+  color: #d92b2b;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  border-left: 4px solid #d92b2b;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 576px) {
+  .service-summary {
+    flex-direction: column;
+  }
+  
+  .service-info {
+    margin-left: 0;
+    margin-top: 12px;
+  }
+  
+  .service-thumbnail {
+    width: 100%;
+    height: 160px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .cancel-btn, .confirm-btn {
+    width: 100%;
+  }
+}

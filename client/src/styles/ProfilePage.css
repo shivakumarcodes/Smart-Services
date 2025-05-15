@@ -1,0 +1,430 @@
+/* ProfilePage.css */
+.profile-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media (min-width: 800px){
+  .profile-container {
+    min-width: 800px;
+  }
+}
+/* Profile Header */
+.profile-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.profile-avatar,
+.profile-avatar-initial {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+  object-fit: cover;
+}
+
+.profile-avatar-initial {
+  background-color: #4361ee;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.profile-header h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  color: #333;
+}
+
+.user-email,
+.user-phone {
+  margin: 0.25rem 0;
+  color: #666;
+}
+
+.user-status {
+  margin-top: 1rem;
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  margin: 0 0.5rem;
+}
+
+.role-badge.user {
+  background-color: #4361ee;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.role-badge.provider {
+  background-color: #3a0ca3;
+}
+
+.role-badge.admin {
+  background-color: #7209b7;
+}
+
+.verified-badge {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  border-radius: 30px;
+  background-color: #4cc9f0;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Provider Information */
+.provider-info,
+.bookings-section {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.provider-info h2,
+.bookings-section h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  color: #333;
+  border-bottom: 2px solid #4361ee;
+  padding-bottom: 0.75rem;
+  display: inline-block;
+}
+
+.provider-details p {
+  margin: 0.75rem 0;
+  font-size: 1.1rem;
+}
+
+.provider-description {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.provider-description h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #555;
+}
+
+/* Services Grid */
+.provider-services h3 {
+  margin: 2rem 0 1rem;
+  font-size: 1.4rem;
+  color: #555;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.service-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.service-card h4 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.service-category {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-price {
+  font-weight: bold;
+  color: #3a0ca3;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+.service-duration {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.inactive-badge {
+  display: inline-block;
+  background-color: #f94144;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/* Bookings */
+.bookings-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.booking-card {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.booking-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.booking-status {
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: white;
+}
+
+.status-pending {
+  background-color: #ffb703;
+}
+
+.status-confirmed {
+  background-color: #4361ee;
+}
+
+.status-completed {
+  background-color: #2b9348;
+}
+
+.status-cancelled {
+  background-color: #e63946;
+}
+
+.booking-details p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.payment-status {
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
+.payment-status.paid {
+  color: #2b9348;
+}
+
+.payment-status.pending {
+  color: #ffb703;
+}
+
+.payment-status.refunded {
+  color: #e63946;
+}
+
+/* Profile Actions */
+.profile-actions {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.edit-button,
+.manage-services-button,
+.retry-button,
+.login-button,
+.save-button,
+.cancel-button {
+  background-color: #4361ee;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin: 0 0.5rem;
+}
+
+.edit-button:hover,
+.retry-button:hover,
+.save-button:hover,
+.login-button:hover {
+  background-color: #3a0ca3;
+}
+
+.manage-services-button {
+  background-color: #4cc9f0;
+}
+
+.manage-services-button:hover {
+  background-color: #4895ef;
+}
+
+.cancel-button {
+  background-color: #fff;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.cancel-button:hover {
+  background-color: #f5f5f5;
+}
+
+/* Loading */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(67, 97, 238, 0.2);
+  border-radius: 50%;
+  border-top-color: #4361ee;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error and Not Found */
+.error-container,
+.not-found-container {
+  text-align: center;
+  padding: 3rem;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 3rem auto;
+}
+
+/* Edit Profile Form */
+.edit-profile-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.form-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .profile-container {
+    padding: 1rem;
+  }
+  
+  .provider-info,
+  .bookings-section {
+    padding: 1.5rem;
+  }
+  
+  .services-grid,
+  .bookings-list {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .form-actions button {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.profile-preview{
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}

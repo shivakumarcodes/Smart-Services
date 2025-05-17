@@ -10,7 +10,7 @@ const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 // Create uploads directory if it doesn't exist
@@ -53,10 +53,10 @@ const upload = multer({
 let pool;
 (async () => {
   pool = await mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
+    host: process.env.DB_HOST || 'localhost',
+    user: process.env.DB_USER || 'root',
+    password: process.env.DB_PASSWORD || '#Shiva123',
+    database: process.env.DB_NAME || 'smart_services',
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0
@@ -149,7 +149,7 @@ app.post('/api/register', upload.single('profilePicture'), async (req, res) => {
   
         const user = users[0];
   
-        const token = jwt.sign({ id: user.user_id, email: user.email, role: user.role }, process.env.JWT_SECRET, {
+        const token = jwt.sign({ id: user.user_id, email: user.email, role: user.role }, process.env.JWT_SECRET || 'yourjwtsecretkey', {
           expiresIn: '7d',
         });
   
@@ -220,7 +220,7 @@ app.post('/api/login', async (req, res) => {
         email: user.email, 
         role: user.role 
       }, 
-      process.env.JWT_SECRET,
+      process.env.JWT_SECRET || 'yourjwtsecretkey',
       { expiresIn: '7d' }
     );
     

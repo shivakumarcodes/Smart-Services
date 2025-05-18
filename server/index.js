@@ -53,8 +53,8 @@ const upload = multer({
 let pool;
 (async () => {
   pool = await mysql.createPool({
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
+    host: process.env.DB_HOST || 'smart-services.ct066qgye9u8.eu-north-1.rds.amazonaws.com',
+    user: process.env.DB_USER || 'admin',
     password: process.env.DB_PASSWORD || '#Shiva123',
     database: process.env.DB_NAME || 'smart_services',
     waitForConnections: true,

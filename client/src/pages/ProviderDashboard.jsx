@@ -101,7 +101,7 @@ const ProviderDashboard = () => {
     if (dashboardData.provider?.profilePicture) {
       return dashboardData.provider.profilePicture.startsWith('http')
         ? dashboardData.provider.profilePicture
-        : `http://localhost:5000${dashboardData.provider.profilePicture}`;
+        : `https://smart-services.onrender.com${dashboardData.provider.profilePicture}`;
     }
     return '/default-profile.png';
   };
@@ -110,7 +110,7 @@ const ProviderDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `http://localhost:5000/api/provider/bookings/${bookingId}`,
+        `https://smart-services.onrender.com/api/provider/bookings/${bookingId}`,
         { action },
         {
           headers: {
@@ -202,7 +202,7 @@ const ProviderDashboard = () => {
           return;
         }
 
-        const response = await axios.get('http://localhost:5000/api/provider/dashboard', {
+        const response = await axios.get('https://smart-services.onrender.com/api/provider/dashboard', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

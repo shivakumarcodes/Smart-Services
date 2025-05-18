@@ -81,7 +81,7 @@ const Services = () => {
         if (maxPrice) params.maxPrice = parseFloat(maxPrice.replace('+', ''));
       }
 
-      const response = await axios.get('http://localhost:5000/api/services', { params });
+      const response = await axios.get('https://smart-services.onrender.com/api/services', { params });
       const servicesData = response.data.services || [];
       setAllServices(servicesData);
       console.log(servicesData)
@@ -154,7 +154,7 @@ const Services = () => {
     }
     return imageUrl.startsWith('http')
       ? imageUrl
-      : `http://localhost:5000${imageUrl}`;
+      : `https://smart-services.onrender.com${imageUrl}`;
   };
 
   const formatPrice = (price) => {

@@ -13,7 +13,7 @@ const ProviderDetails = () => {
     const fetchProviderDetails = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:5000/api/providers/${id}`);
+        const response = await axios.get(`https://smart-services.onrender.com/api/providers/${id}`);
         setProvider(response.data);
         setLoading(false);
       } catch (err) {

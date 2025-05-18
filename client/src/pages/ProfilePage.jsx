@@ -34,7 +34,7 @@ const ProfilePage = () => {
         return;
       }
 
-      const response = await axios.get('http://localhost:5000/api/profile', {
+      const response = await axios.get('https://smart-services.onrender.com/api/profile', {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -155,7 +155,7 @@ const ProfilePage = () => {
         return;
       }
       
-      const response = await axios.put('http://localhost:5000/api/profile', formDataToSend, {
+      const response = await axios.put('https://smart-services.onrender.com/api/profile', formDataToSend, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'
@@ -217,7 +217,7 @@ const ProfilePage = () => {
     // If the URL already starts with http or https, return it as is
     if (url.startsWith('http')) return url;
     // Otherwise, prepend the base API URL
-    return `http://localhost:5000${url}`;
+    return `https://smart-services.onrender.com${url}`;
   };
 
   if (loading && !profile) {

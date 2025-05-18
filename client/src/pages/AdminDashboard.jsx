@@ -57,14 +57,14 @@ const AdminDashboard = () => {
 
       // Fetch users
       if (activeTab === 'users' || activeTab === 'dashboard') {
-        const usersRes = await axios.get('http://localhost:5000/api/admin/users', config);
+        const usersRes = await axios.get('https://smart-services.onrender.com/api/admin/users', config);
         setUsers(usersRes.data);
         setLoading(prev => ({ ...prev, users: false }));
       }
 
       // Fetch pending providers
       if (activeTab === 'providers' || activeTab === 'dashboard') {
-        const providersRes = await axios.get('http://localhost:5000/api/admin/providers/pending', config);
+        const providersRes = await axios.get('https://smart-services.onrender.com/api/admin/providers/pending', config);
         setPendingProviders(providersRes.data);
         setLoading(prev => ({ ...prev, providers: false }));
       }
@@ -72,8 +72,8 @@ const AdminDashboard = () => {
       // Calculate stats (client-side for now - you might want to create a stats endpoint)
       if (activeTab === 'dashboard') {
         const [usersRes, providersRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/admin/users', config),
-          axios.get('http://localhost:5000/api/admin/providers/pending', config)
+          axios.get('https://smart-services.onrender.com/api/admin/users', config),
+          axios.get('https://smart-services.onrender.com/api/admin/providers/pending', config)
         ]);
 
         const totalUsers = usersRes.data.length;
@@ -109,7 +109,7 @@ const AdminDashboard = () => {
       const providerName = provider ? provider.name : 'Provider';
       
       await axios.put(
-        `http://localhost:5000/api/admin/providers/${providerId}/approve`,
+        `https://smart-services.onrender.com/api/admin/providers/${providerId}/approve`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -119,7 +119,7 @@ const AdminDashboard = () => {
       
       // Refresh the pending providers list
       const providersRes = await axios.get(
-        'http://localhost:5000/api/admin/providers/pending',
+        'https://smart-services.onrender.com/api/admin/providers/pending',
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setPendingProviders(providersRes.data);
@@ -146,7 +146,7 @@ const AdminDashboard = () => {
       const providerName = provider ? provider.name : 'Provider';
       
       await axios.delete(
-        `http://localhost:5000/api/admin/providers/${providerId}`,
+        `https://smart-services.onrender.com/api/admin/providers/${providerId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       
@@ -155,7 +155,7 @@ const AdminDashboard = () => {
       
       // Refresh the pending providers list
       const providersRes = await axios.get(
-        'http://localhost:5000/api/admin/providers/pending',
+        'https://smart-services.onrender.com/api/admin/providers/pending',
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setPendingProviders(providersRes.data);

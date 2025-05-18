@@ -104,7 +104,7 @@ const NewServiceForm = () => {
         formDataToSend.append('images', image);
       });
 
-      const response = await axios.post('http://localhost:5000/api/services', formDataToSend, {
+      const response = await axios.post('https://smart-services.onrender.com/api/services', formDataToSend, {
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'multipart/form-data'

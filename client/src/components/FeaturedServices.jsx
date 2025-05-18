@@ -14,7 +14,7 @@ const FeaturedServices = () => {
     const fetchFeaturedProviders = async () => {
       try {
         setLoading(true);
-        const response = await axios.get('http://localhost:5000/api/providers', {
+        const response = await axios.get('https://smart-services.onrender.com/api/providers', {
           params: {
             isApproved: 'true',
             minRating: 4.5,

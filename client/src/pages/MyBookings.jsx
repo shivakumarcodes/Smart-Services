@@ -21,7 +21,7 @@ const MyBookings = () => {
           return;
         }
 
-        const response = await axios.get('http://localhost:5000/api/bookings/my-bookings', {
+        const response = await axios.get('https://smart-services.onrender.com/api/bookings/my-bookings', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -95,7 +95,7 @@ const MyBookings = () => {
     }
 
     const response = await axios.put(
-      `http://localhost:5000/api/bookings/${bookingId}/cancel`,
+      `https://smart-services.onrender.com/api/bookings/${bookingId}/cancel`,
       {},
       {
         headers: {

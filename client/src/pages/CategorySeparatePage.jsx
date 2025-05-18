@@ -32,7 +32,7 @@ export default function CategorySeparatePage() {
     const fetchServices = async () => {
       try {
         setLoading(true);        
-        const response = await axios.get(`http://localhost:5000/api/services?category=${formattedCategoryName}`);
+        const response = await axios.get(`https://smart-services.onrender.com/api/services?category=${formattedCategoryName}`);
         const servicesData = response.data.services || [];
         setServices(servicesData);
         // console.log(servicesData);

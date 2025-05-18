@@ -104,7 +104,7 @@ const Register = () => {
         formDataToSend.append('profilePicture', profilePicture);
       }
 
-      const response = await axios.post('http://localhost:5000/api/register', formDataToSend, {
+      const response = await axios.post('https://smart-services.onrender.com/api/register', formDataToSend, {
         headers: {
           'Content-Type': 'multipart/form-data' // Important for file uploads
         }

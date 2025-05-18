@@ -23,7 +23,7 @@ const Navbar = () => {
     try {
       const token = localStorage.getItem('token');
       if (token && user) {
-        const response = await axios.get('http://localhost:5000/api/profile', {
+        const response = await axios.get('https://smart-services.onrender.com/api/profile', {
           headers: {
             Authorization: `Bearer ${token}`
           }
@@ -87,14 +87,14 @@ const Navbar = () => {
     if (profile?.profilePicture) {
       return profile.profilePicture.startsWith('http')
         ? profile.profilePicture
-        : `http://localhost:5000${profile.profilePicture}`;
+        : `https://smart-services.onrender.com${profile.profilePicture}`;
     }
     
     // Fallback to user info from auth context
     if (user?.profile_picture_url) {
       return user.profile_picture_url.startsWith('http')
         ? user.profile_picture_url
-        : `http://localhost:5000${user.profile_picture_url}`;
+        : `https://smart-services.onrender.com${user.profile_picture_url}`;
     }
     
     return null;

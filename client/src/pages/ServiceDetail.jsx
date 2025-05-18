@@ -33,7 +33,7 @@ const ServiceDetail = () => {
     if (service?.provider_image) {
       return service.provider_image.startsWith('http')
         ? service.provider_image
-        : `http://localhost:5000${service.provider_image}`;
+        : `https://smart-services.onrender.com${service.provider_image}`;
     }
     return '/default-avatar.jpg';
   };
@@ -46,7 +46,7 @@ const ServiceDetail = () => {
           return;
         }
 
-        const response = await axios.get(`http://localhost:5000/api/services/${id}`);
+        const response = await axios.get(`https://smart-services.onrender.com/api/services/${id}`);
         setService(response.data);
       } catch (err) {
         setError(err.response?.data?.message || err.message);
@@ -105,7 +105,7 @@ const ServiceDetail = () => {
         totalAmount: service.base_price
       };
 
-      const response = await axios.post('http://localhost:5000/api/bookings', bookingData, {
+      const response = await axios.post('https://smart-services.onrender.com/api/bookings', bookingData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -100,9 +100,9 @@ const Login = () => {
             {errors.password && <span className="error-text">{errors.password}</span>}
           </div>
           
-          <div className="forgot-password">
+          {/* <div className="forgot-password">
             <Link to="/forgot-password">Forgot password?</Link>
-          </div>
+          </div> */}
           
           <button 
             type="submit" 

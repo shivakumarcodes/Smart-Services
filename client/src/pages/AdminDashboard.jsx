@@ -476,13 +476,13 @@ const AdminDashboard = () => {
         </h1>
         <div className="user-profile">
           <img 
-            src="https://smartservices.com/profiles/admin.jpg" 
+            src="https://smart-services.onrender.com/uploads/5d07aeab-4681-473a-9512-6770cc9fd3b3.jpg" 
             alt="Admin"
             onError={(e) => {
               e.target.src = 'https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg';
             }}
           />
-          <span>Admin User</span>
+          <span>Admin</span>
         </div>
       </header>
 

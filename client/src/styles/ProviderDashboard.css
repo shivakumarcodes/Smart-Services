@@ -305,6 +305,7 @@
 
 .service-info {
   padding: 1.25rem;
+  margin: 0 !important;
 }
 
 .service-info h3 {
@@ -316,8 +317,9 @@
 .service-description {
   color: #64748b;
   font-size: 0.9rem;
-  margin: 0 0 1rem 0;
-  display: -webkit-box;
+  text-align: center;
+  /* margin: 0 0 1rem 0; */
+  /* display: -webkit-box; */
   /* -webkit-line-clamp: 2;
   -webkit-box-orient: vertical; */
   overflow: hidden;

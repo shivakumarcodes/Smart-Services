@@ -84,7 +84,7 @@ const Services = () => {
       const response = await axios.get('https://smart-services.onrender.com/api/services', { params });
       const servicesData = response.data.services || [];
       setAllServices(servicesData);
-      console.log(servicesData)
+      // console.log(servicesData)
       
       // Calculate pagination information
       setTotalItems(servicesData.length);

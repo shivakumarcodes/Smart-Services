@@ -21,8 +21,7 @@ const FeaturedServices = () => {
             limit: 6
           }
         });
-        setProviders(response.data.slice(0,6));
-        // console.log(response.data);
+        setProviders(response.data.slice(0, 6));
         setLoading(false);
       } catch (err) {
         console.error('Error fetching featured providers:', err);
@@ -65,17 +64,28 @@ const FeaturedServices = () => {
       <h2 className="categories-title">Featured Service Providers</h2>
       {providers.length > 0 ? (
         <div className="featured-services-grid">
-          {providers.map(provider => (
-            <FeaturedServiceCard 
-              key={provider.provider_id}
-              providerPhoto={provider.profile_picture_url}
-              providerName={provider.provider_name}
-              serviceType={provider.service_type}
-              rating={provider.rating || 4.5}
-              experience_years={provider.experience_years}
-              onClick={() => handleProviderClick(provider.provider_id)}
-            />
-          ))}
+          {providers.map(provider => {
+            const {
+              provider_id,
+              profile_picture_url,
+              provider_name,
+              service_type,
+              experience_years,
+              rating
+            } = provider;
+
+            return (
+              <FeaturedServiceCard
+                key={provider_id}
+                providerPhoto={profile_picture_url}
+                providerName={provider_name}
+                serviceType={service_type}
+                experience_years={experience_years}
+                rating={Number(rating) || 4.5}
+                onClick={() => handleProviderClick(provider_id)}
+              />
+            );
+          })}
         </div>
       ) : (
         <p className="no-results">No featured providers available at this time.</p>

@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../styles/FeaturedServiceCard.css';
 
-const FeaturedServiceCard = ({ 
-  providerPhoto, 
-  providerName, 
+const FeaturedServiceCard = ({
+  providerPhoto = '',
+  providerName,
   serviceType,
-  experience_years, 
-  rating, 
+  experience_years = 0,
+  rating = 4,
   onClick,
   isLoading = false
 }) => {
@@ -19,10 +19,10 @@ const FeaturedServiceCard = ({
   };
 
   const renderStars = (ratingValue) => {
-    const numericRating = typeof ratingValue === 'number' && !isNaN(ratingValue) 
-      ? Math.min(Math.max(ratingValue, 0), 5) 
+    const numericRating = typeof ratingValue === 'number' && !isNaN(ratingValue)
+      ? Math.min(Math.max(ratingValue, 0), 5)
       : 0;
-    
+
     const fullStars = Math.floor(numericRating);
     const hasHalfStar = numericRating % 1 >= 0.5;
 
@@ -56,7 +56,7 @@ const FeaturedServiceCard = ({
   }
 
   return (
-    <article 
+    <article
       className="featured-card"
       onClick={onClick}
       onKeyDown={handleKeyDown}
@@ -65,9 +65,9 @@ const FeaturedServiceCard = ({
       aria-label={`View details for ${providerName}, ${serviceType} provider`}
     >
       <div className="provider-photo-container">
-        <img 
-          src={providerPhoto || 'https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg'} 
-          alt={`${providerName}`} 
+        <img
+          src={providerPhoto || 'https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg'}
+          alt={`${providerName}`}
           className="provider-photo"
           loading="lazy"
           onError={(e) => {
@@ -96,13 +96,6 @@ FeaturedServiceCard.propTypes = {
   rating: PropTypes.number,
   onClick: PropTypes.func.isRequired,
   isLoading: PropTypes.bool
-};
-
-FeaturedServiceCard.defaultProps = {
-  rating: 4,
-  providerPhoto: '',
-  experience_years: 0,
-  isLoading: false
 };
 
 export default FeaturedServiceCard;

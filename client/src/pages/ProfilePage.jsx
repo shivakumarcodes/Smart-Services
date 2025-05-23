@@ -9,6 +9,7 @@ const ProfilePage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+  const [profileImageError, setProfileImageError] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -41,6 +42,7 @@ const ProfilePage = () => {
       });
 
       setProfile(response.data);
+      setProfileImageError(false); // Reset image error when profile loads
       setFormData({
         name: response.data.name,
         phone: response.data.phone || '',
@@ -164,6 +166,7 @@ const ProfilePage = () => {
       
       // Update profile with the returned data
       setProfile(response.data);
+      setProfileImageError(false); // Reset image error on successful update
       setIsEditing(false);
       setPreviewImage(null);
       
@@ -218,6 +221,10 @@ const ProfilePage = () => {
     if (url.startsWith('http')) return url;
     // Otherwise, prepend the base API URL
     return `https://smart-services.onrender.com${url}`;
+  };
+
+  const handleProfileImageError = () => {
+    setProfileImageError(true);
   };
 
   if (loading && !profile) {
@@ -334,15 +341,12 @@ const ProfilePage = () => {
   return (
     <div className="profile-container">
       <div className="profile-header">
-        {profile.profilePicture ? (
+        {profile.profilePicture && !profileImageError ? (
           <img
             src={getProfilePictureUrl(profile.profilePicture)}
             alt={profile.name}
             className="profile-avatar"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.parentNode.innerHTML = `<div class="profile-avatar-initial">${getInitial(profile.name)}</div>`;
-            }}
+            onError={handleProfileImageError}
           />
         ) : (
           <div className="profile-avatar-initial">

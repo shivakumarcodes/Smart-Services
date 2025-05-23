@@ -64,8 +64,16 @@ export default function CategorySeparatePage() {
   };
 
   const getPrimaryImage = (service) => {
-    return service.primary_image_url || 'https://placehold.co/400x300.png?text=Service+Image&font=roboto';
-  };
+  const placeholderImage = 'https://placehold.co/400x300.png?text=Service+Image&font=roboto';
+
+  if (service?.primary_image_url) {
+    return service.primary_image_url.startsWith('http')
+      ? service.primary_image_url
+      : `https://smart-services.onrender.com${service.primary_image_url}`;
+  }
+
+  return 'https://placehold.co/400x300.png?text=Service+Image&font=roboto';
+};
 
   const formatPrice = (price) => {
     const numericPrice = Number(price);

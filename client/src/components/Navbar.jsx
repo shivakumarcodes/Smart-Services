@@ -9,6 +9,7 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [profile, setProfile] = useState(null);
+  const [imageError, setImageError] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const dropdownRef = useRef(null);
@@ -29,6 +30,7 @@ const Navbar = () => {
           }
         });
         setProfile(response.data);
+        setImageError(false); // Reset image error when profile updates
       }
     } catch (error) {
       console.error('Error fetching profile:', error);
@@ -48,6 +50,7 @@ const Navbar = () => {
     } else {
       // Clear profile when user logs out
       setProfile(null);
+      setImageError(false);
     }
   }, [user, location.pathname, fetchProfile]); // Add location dependency to trigger refetch on navigation
 
@@ -75,6 +78,7 @@ const Navbar = () => {
     navigate('/login');
     setIsDropdownOpen(false);
     setProfile(null);
+    setImageError(false);
   };
 
   const isActive = (path) => {
@@ -165,6 +169,10 @@ const Navbar = () => {
     return 'User'; // Ultimate fallback
   };
 
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <nav className="navbar">
       <div className="nav-container">
@@ -210,15 +218,12 @@ const Navbar = () => {
                 aria-label="Profile menu"
               >
                 <div className="profile-avatar-container">
-                  {getProfilePictureUrl() ? (
+                  {getProfilePictureUrl() && !imageError ? (
                     <img 
                       src={getProfilePictureUrl()}
                       alt={getDisplayName()} 
                       className="profile-pic"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                        e.target.nextElementSibling.style.display = 'flex';
-                      }}
+                      onError={handleImageError}
                     />
                   ) : (
                     <div className="profile-initial">

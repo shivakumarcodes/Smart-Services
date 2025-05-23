@@ -106,6 +106,11 @@ const ProviderDashboard = () => {
     return '/default-profile.png';
   };
 
+  const getServiceImageUrl = (imagePath) => {
+    if (!imagePath) return '/default-service.png';
+    return imagePath.startsWith('http') ? imagePath : `https://smart-services.onrender.com${imagePath}`;
+  };
+
   const handleBookingAction = async (bookingId, action) => {
     try {
       const token = localStorage.getItem('token');
@@ -208,6 +213,8 @@ const ProviderDashboard = () => {
           },
         });
 
+        console.log(response.data.services)
+
         const transformedData = {
           provider: {
             ...response.data.provider,
@@ -221,7 +228,7 @@ const ProviderDashboard = () => {
             price: service.basePrice,
             duration: service.durationMinutes,
             isActive: service.isActive,
-            image: service.imageUrl || 'https://bluetree.com.au/wp-content/uploads/2016/10/DBlue_Services.png'
+            image: service.imageUrl || `https://smart-services.onrender.com${service.imageUrl}` || 'https://bluetree.com.au/wp-content/uploads/2016/10/DBlue_Services.png'
           })),
           bookings: response.data.recentBookings.map(booking => ({
             id: booking.id,
@@ -395,11 +402,11 @@ const ProviderDashboard = () => {
                 <div key={service.id} className="service-card">
                   <div className="service-image-container">
                     <img 
-                      src={service.image} 
+                      src={getServiceImageUrl(service.image)} 
                       alt={service.title}
-                      onError={(e) => {
-                        e.target.src = 'https://bluetree.com.au/wp-content/uploads/2016/10/DBlue_Services.png';
-                      }}
+                      // onError={(e) => {
+                      //   e.target.src = 'https://bluetree.com.au/wp-content/uploads/2016/10/DBlue_Services.png';
+                      // }}
                     />
                   </div>
                   <div className="service-info">

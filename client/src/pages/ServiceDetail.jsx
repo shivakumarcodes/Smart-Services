@@ -22,12 +22,24 @@ const ServiceDetail = () => {
   const placeholderImage = 'https://placehold.co/400x300.png?text=Service+Image&font=roboto';
 
   const getServiceImage = () => {
-    if (service?.images?.length > 0) {
-      const primaryImage = service.images.find(img => img.is_primary);
-      return primaryImage?.image_url || service.images[0].image_url;
+  if (service?.images?.length > 0) {
+    const primaryImage = service.images.find(img => img.is_primary);
+    
+    if (primaryImage) {
+      return primaryImage.image_url.startsWith('http')
+        ? primaryImage.image_url
+        : `https://smart-services.onrender.com${primaryImage.image_url}`;
     }
-    return placeholderImage;
-  };
+
+    const firstImage = service.images[0];
+    return firstImage.image_url.startsWith('http')
+      ? firstImage.image_url
+      : `https://smart-services.onrender.com${firstImage.image_url}`;
+  }
+
+  return placeholderImage;
+};
+
 
   const getProfilePictureUrl = () => {
     if (service?.provider_image) {
@@ -35,7 +47,7 @@ const ServiceDetail = () => {
         ? service.provider_image
         : `https://smart-services.onrender.com${service.provider_image}`;
     }
-    return '/default-avatar.jpg';
+    return 'https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg';
   };
 
   useEffect(() => {
@@ -48,6 +60,7 @@ const ServiceDetail = () => {
 
         const response = await axios.get(`https://smart-services.onrender.com/api/services/${id}`);
         setService(response.data);
+        console.log(response.data);
       } catch (err) {
         setError(err.response?.data?.message || err.message);
         navigate('/services');
@@ -198,7 +211,7 @@ const ServiceDetail = () => {
             className="provider-avatar"
             onError={(e) => {
               e.target.onerror = null;
-              e.target.src = '/default-avatar.jpg';
+              e.target.src = 'https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg';
             }}
           />
           <div className="provider-info">

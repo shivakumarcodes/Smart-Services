@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/NewServiceForm.css';
@@ -18,18 +18,20 @@ const NewServiceForm = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
-  const categories = [
-    'Cleaning',
-    'Plumbing',
-    'Electrical',
-    'Photographer',
-    'Painting',
-    'Moving',
-    'Gardening',
-    'Handyman',
-    'Appliance Repair',
-    'Other'
-  ];
+  const [categories, setCategories] = useState([]);
+
+useEffect(() => {
+  const fetchCategories = async () => {
+    try {
+      const res = await axios.get('https://smart-services.onrender.com/api/categories');
+      setCategories(res.data.categories);
+    } catch (err) {
+      console.error('Failed to fetch categories:', err);
+    }
+  };
+  fetchCategories();
+}, []);
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;

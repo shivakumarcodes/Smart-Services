@@ -369,6 +369,18 @@ app.put('/api/profile', authenticate, upload.single('profilePicture'), async (re
   }
 });
 
+// Get all categories
+app.get('/api/categories', async (req, res) => {
+  try {
+    const [rows] = await pool.execute('SELECT name FROM categories ORDER BY name ASC');
+    const categoryNames = rows.map(row => row.name);
+    res.json({ categories: categoryNames });
+  } catch (error) {
+    console.error('Error fetching categories:', error);
+    res.status(500).json({ message: 'Failed to fetch categories' });
+  }
+});
+
 // Get services
 app.get('/api/services', async (req, res) => {
   try {

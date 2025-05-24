@@ -11,25 +11,6 @@ const LOCATION_OPTIONS = [
   { value: 'Karimnagar', label: 'Karimnagar' }
 ];
 
-const [categoryOptions, setCategoryOptions] = useState([{ value: '', label: 'All Categories' }]);
-
-useEffect(() => {
-  const fetchCategories = async () => {
-    try {
-      const res = await axios.get('https://smart-services.onrender.com/api/categories');
-      const dynamicOptions = res.data.categories.map(category => ({
-        value: category,
-        label: category
-      }));
-      setCategoryOptions([{ value: '', label: 'All Categories' }, ...dynamicOptions]);
-    } catch (err) {
-      console.error('Failed to fetch categories:', err);
-    }
-  };
-  fetchCategories();
-}, []);
-
-
 const PRICE_RANGE_OPTIONS = [
   { value: '', label: 'All Prices' },
   { value: '0-50', label: '$0 - $50' },
@@ -50,6 +31,24 @@ const Services = () => {
     category: '',
     priceRange: ''
   });
+
+  const [categoryOptions, setCategoryOptions] = useState([{ value: '', label: 'All Categories' }]);
+
+useEffect(() => {
+  const fetchCategories = async () => {
+    try {
+      const res = await axios.get('https://smart-services.onrender.com/api/categories');
+      const dynamicOptions = res.data.categories.map(category => ({
+        value: category,
+        label: category
+      }));
+      setCategoryOptions([{ value: '', label: 'All Categories' }, ...dynamicOptions]);
+    } catch (err) {
+      console.error('Failed to fetch categories:', err);
+    }
+  };
+  fetchCategories();
+}, []);
   
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);

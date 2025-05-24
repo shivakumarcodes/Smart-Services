@@ -8,46 +8,31 @@ const multer = require('multer');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
 const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
 
-// Create uploads directory if it doesn't exist
-const uploadsDir = path.join(__dirname, 'uploads');
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
-
-// Set up static file serving for uploads
-app.use('/uploads', express.static(uploadsDir));
+// Configure Cloudinary
+cloudinary.config({
+  cloud_name: 'do5aecy6u',
+  api_key: '253664263519732',
+  api_secret: 'qZznvmX9sypMoP7NPFpap9Cf3-Q',
+});
 
 // Configure multer for file uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadsDir);
-  },
-  filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname);
-    cb(null, `${uuidv4()}${ext}`);
+// Multer using Cloudinary storage
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'smart-services-users',
+    allowed_formats: ['jpg', 'jpeg', 'png', 'webp'],
+    public_id: (req, file) => `${Date.now()}-${file.originalname.split('.')[0]}`
   }
 });
-
-const upload = multer({
-  storage,
-  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
-  fileFilter: (req, file, cb) => {
-    const allowedTypes = /jpeg|jpg|png|gif|webp/;
-    const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
-    const mimetype = allowedTypes.test(file.mimetype);
-    
-    if (extname && mimetype) {
-      return cb(null, true);
-    } else {
-      cb(new Error('Only image files are allowed'));
-    }
-  }
-});
+const upload = multer({ storage });
 
 // Database connection
 let pool;
@@ -113,7 +98,7 @@ app.post('/api/register', upload.single('profilePicture'), async (req, res) => {
       }
   
       const hashedPassword = await bcrypt.hash(password, 10);
-      const profilePictureUrl = req.file ? `/uploads/${req.file.filename}` : null;
+      const profilePictureUrl = req.file ? req.file.path : null; // Cloudinary URL
       const userId = uuidv4(); // ✅ Define userId here before using it
   
       const connection = await pool.getConnection();
@@ -348,7 +333,7 @@ app.put('/api/profile', authenticate, upload.single('profilePicture'), async (re
       
       let profilePictureUrl;
       if (req.file) {
-          profilePictureUrl = `/uploads/${req.file.filename}`;
+          profilePictureUrl = req.file.path;
           updates.push('profile_picture_url = ?');
           params.push(profilePictureUrl);
       }
@@ -632,7 +617,7 @@ app.post('/api/services', authenticate, authorize(['provider']), upload.array('i
       let isPrimary = true;
 
       for (const file of req.files) {
-        const imageUrl = `/uploads/${file.filename}`;
+        const imageUrl = file.path;
 
         await connection.execute(
           'INSERT INTO service_images (image_id, service_id, image_url, is_primary) VALUES (?, ?, ?, ?)',

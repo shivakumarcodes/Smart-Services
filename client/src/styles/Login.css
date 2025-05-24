@@ -187,7 +187,7 @@
   width: 100%;
   padding: 12px;
   margin-top: 10px;
-  background-color: #6c757d;
+  background-color: green;
   color: white;
   border: none;
   border-radius: 6px;
@@ -198,7 +198,7 @@
 }
 
 .guest-login-button:hover:not(:disabled) {
-  background-color: #5a6268;
+  background-color: darkgreen;
 }
 
 .guest-login-button:disabled {

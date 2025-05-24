@@ -276,7 +276,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(22, 160, 133, 0.1);
+  border: 3px solid rgba(22, 160, 133, 0.1);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   background-color: hsl(43, 100%, 94%) !important;

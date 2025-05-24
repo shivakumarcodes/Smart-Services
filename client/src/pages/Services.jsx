@@ -11,15 +11,24 @@ const LOCATION_OPTIONS = [
   { value: 'Karimnagar', label: 'Karimnagar' }
 ];
 
-const CATEGORY_OPTIONS = [
-  { value: '', label: 'All Categories' },
-  { value: 'Home Cleaning', label: 'Home Cleaning' },
-  { value: 'Plumbing', label: 'Plumbing' },
-  { value: 'Electrical', label: 'Electrical' },
-  { value: 'Tutoring', label: 'Tutoring' },
-  { value: 'Photography', label: 'Photography' },
-  { value: 'IT Support', label: 'IT Support' }
-];
+const [categoryOptions, setCategoryOptions] = useState([{ value: '', label: 'All Categories' }]);
+
+useEffect(() => {
+  const fetchCategories = async () => {
+    try {
+      const res = await axios.get('https://smart-services.onrender.com/api/categories');
+      const dynamicOptions = res.data.categories.map(category => ({
+        value: category,
+        label: category
+      }));
+      setCategoryOptions([{ value: '', label: 'All Categories' }, ...dynamicOptions]);
+    } catch (err) {
+      console.error('Failed to fetch categories:', err);
+    }
+  };
+  fetchCategories();
+}, []);
+
 
 const PRICE_RANGE_OPTIONS = [
   { value: '', label: 'All Prices' },
@@ -308,7 +317,7 @@ const Services = () => {
               value={filters.category}
               onChange={(e) => handleFilterChange('category', e.target.value)}
             >
-              {CATEGORY_OPTIONS.map(option => (
+              {categoryOptions.map(option => (
                 <option key={option.value} value={option.value}>
                   {option.label}
                 </option>

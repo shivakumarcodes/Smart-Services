@@ -196,8 +196,6 @@ useEffect(() => {
 
   const renderPagination = () => {
     if (totalPages <= 1) return null;
-
-    // Create array of page numbers to show
     const pageNumbers = [];
     const maxVisiblePages = 5;
 

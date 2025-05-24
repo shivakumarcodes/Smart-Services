@@ -476,7 +476,7 @@ const AdminDashboard = () => {
         </h1>
         <div className="user-profile">
           <img 
-            src="https://smart-services.onrender.com/uploads/5d07aeab-4681-473a-9512-6770cc9fd3b3.jpg" 
+            src="https://res.cloudinary.com/do5aecy6u/image/upload/v1748090371/smart-services-users/af1uegbuurdbnffzu3ie.jpg" 
             alt="Admin"
             onError={(e) => {
               e.target.src = 'https://isobarscience.com/wp-content/uploads/2020/09/default-profile-picture1.jpg';

@@ -521,3 +521,11 @@
 .head{
   font-size: 30px !important;
 }
+
+.action-buttons {
+  display: flex;
+  gap: 1rem; /* spacing between the button and share button */
+  align-items: center; /* vertically center content */
+  margin-top: 1rem;
+  flex-wrap: wrap; /* optional: allow wrapping on small screens */
+}

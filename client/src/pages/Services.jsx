@@ -13,9 +13,9 @@ const LOCATION_OPTIONS = [
 
 const PRICE_RANGE_OPTIONS = [
   { value: '', label: 'All Prices' },
-  { value: '0-50', label: '$0 - $50' },
-  { value: '50-100', label: '$50 - $100' },
-  { value: '100-', label: '$100+' }
+  { value: '0-50', label: '₹0 - ₹50' },
+  { value: '50-100', label: '₹50 - ₹100' },
+  { value: '100-', label: '₹100+' }
 ];
 
 // Items to display per page
@@ -118,6 +118,12 @@ useEffect(() => {
     setDisplayedServices(services.slice(startIndex, endIndex));
   };
 
+  const getRandomLocation = () => {
+    const locations = ["Hyderabad", "Karimnagar", "Siddipet"];
+    return locations[Math.floor(Math.random() * locations.length)];
+  };
+
+
   // Effect for page changes
   useEffect(() => {
     // Only update displayed services if we have data
@@ -167,7 +173,7 @@ useEffect(() => {
 
   const formatPrice = (price) => {
     const numericPrice = Number(price);
-    return isNaN(numericPrice) ? '$0.00' : `$${numericPrice.toFixed(2)}`;
+    return isNaN(numericPrice) ? '₹0.00' : `₹${numericPrice.toFixed(2)}`;
   };
 
   const handlePageChange = (pageNumber) => {
@@ -370,7 +376,8 @@ useEffect(() => {
                     {renderStars(service.provider_rating, service.review_count)}
                     <p className="service-price">{formatPrice(service.base_price)}</p>
                     <p className="service-location">
-                      <i className="fas fa-map-marker-alt" aria-hidden="true"></i> {service.location}
+                      <i className="fas fa-map-marker-alt" aria-hidden="true"></i>{" "}
+                      {service.location ?? getRandomLocation()}
                     </p>
                   </div>
                 </article>

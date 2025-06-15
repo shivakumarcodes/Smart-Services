@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/ProviderDetails.css';
+import ShareButton from '../components/ShareButton';
 
 const ProviderDetails = () => {
   const { id } = useParams();
@@ -84,6 +85,7 @@ const ProviderDetails = () => {
             <span className="stars">★★★★★</span>
             <span className="rating-value">{formatRating(provider.rating)}</span>
           </div>
+          <ShareButton />
         </div>
       </div>
 
@@ -101,7 +103,7 @@ const ProviderDetails = () => {
                 <div key={service.service_id} className="service-card">
                   <h3>{service.service_name}</h3>
                   <p>{service.description}</p>
-                  <p className="price">${price}</p>
+                  <p className="price">₹{price}</p>
                 </div>
               ))}
             </div>

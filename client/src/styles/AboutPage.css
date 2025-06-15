@@ -109,12 +109,12 @@
   /* Mission Section */
   .mission-section {
     width: 100vw;
-    padding: 8rem 0;
     position: relative;
     display: grid;
     justify-content: center;
     align-content: center;
     background-color: var(--bg-light);
+    padding: auto !important;
   }
   
   .mission-section::before {
@@ -124,8 +124,6 @@
     left: 0;
     width: 100%;
     height: 100px;
-    /* background: white; */
-    /* clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%); */
   }
   
   .mission-content {
@@ -150,8 +148,9 @@
   .content{
     text-align: center;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    max-width: 600px;
-    color: #f9fafb;
+    max-width: 700px;
+    color: #1c2023;
+    gap: 1rem;
   }
   
   .mission-content h2::after {
@@ -380,7 +379,7 @@
   }
   
   .photo-1 {
-    background-image: url('https://randomuser.me/api/portraits/men/32.jpg');
+    background-image: url('https://res.cloudinary.com/do5aecy6u/image/upload/v1748094498/smart-services-users/1748094496461-WhatsApp%20Image%202024-09-11%20at%2018.jpg');
   }
   
   .photo-2 {

@@ -21,7 +21,7 @@ const services = [
   },
   {
     name: 'Skilled Carpenters',
-    image: 'https://images.unsplash.com/photo-1595844730298-b96095959998?q=80&w=2893&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1416879595882-3373a0480b5b?q=80&w=2940&auto=format&fit=crop',
   }
 ];
 

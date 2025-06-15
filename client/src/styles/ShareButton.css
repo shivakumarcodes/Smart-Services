@@ -1,0 +1,195 @@
+/* Share Button Styling */
+        .share-container {
+          position: relative;
+          display: inline-block;
+        }
+
+        .share-button {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 12px 20px;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          border: none;
+          border-radius: 25px;
+          font-size: 14px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+          margin-left: 15px;
+          min-width: 120px;
+          justify-content: center;
+        }
+
+        .share-button:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+          background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+        }
+
+        .share-button:active {
+          transform: translateY(0);
+          box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .share-button:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+          transform: none;
+        }
+
+        .share-icon {
+          width: 16px;
+          height: 16px;
+          fill: currentColor;
+        }
+
+        .share-dropdown {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          margin-top: 8px;
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+          z-index: 1000;
+          min-width: 200px;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.3s ease;
+        }
+
+        .share-dropdown.active {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+
+        .share-dropdown::before {
+          content: '';
+          position: absolute;
+          top: -6px;
+          right: 20px;
+          width: 12px;
+          height: 12px;
+          background: white;
+          transform: rotate(45deg);
+          box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .share-options {
+          padding: 8px 0;
+          list-style: none;
+          margin: 0;
+        }
+
+        .share-option {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          padding: 12px 16px;
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+          color: #333;
+          text-decoration: none;
+          font-size: 14px;
+        }
+
+        .share-option:hover {
+          background-color: #f8f9fa;
+        }
+
+        .share-option-icon {
+          width: 20px;
+          height: 20px;
+          flex-shrink: 0;
+        }
+
+        .share-option.facebook:hover {
+          background-color: #e8f0fe;
+          color: #1877f2;
+        }
+
+        .share-option.twitter:hover {
+          background-color: #e8f5fd;
+          color: #1da1f2;
+        }
+
+        .share-option.linkedin:hover {
+          background-color: #e8f4fd;
+          color: #0077b5;
+        }
+
+        .share-option.whatsapp:hover {
+          background-color: #e8f5e8;
+          color: #25d366;
+        }
+
+        .share-option.copy:hover {
+          background-color: #f3e8ff;
+          color: #8b5cf6;
+        }
+
+        .copy-success {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: #10b981;
+          color: white;
+          padding: 12px 20px;
+          border-radius: 8px;
+          box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+          z-index: 9999;
+          font-size: 14px;
+          font-weight: 500;
+          opacity: 0;
+          transform: translateY(-20px);
+          transition: all 0.3s ease;
+        }
+
+        .copy-success.show {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+          .share-button {
+            padding: 10px 16px;
+            font-size: 13px;
+            margin-left: 10px;
+            min-width: 100px;
+          }
+          
+          .share-dropdown {
+            right: -10px;
+            min-width: 180px;
+          }
+          
+          .share-dropdown::before {
+            right: 25px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .share-button {
+            padding: 8px 12px;
+            font-size: 12px;
+            margin-left: 8px;
+            min-width: 90px;
+          }
+          
+          .share-dropdown {
+            right: -20px;
+            left: auto;
+            min-width: 160px;
+          }
+          
+          .share-option {
+            padding: 10px 12px;
+            font-size: 13px;
+          }
+        }

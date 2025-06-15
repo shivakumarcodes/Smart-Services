@@ -38,8 +38,8 @@ const About = () => {
       {/* Mission Section with Animated Stats */}
       <section className="mission-section">
         <div>
-          <div className="mission-content" data-aos="fade-right">
-            <h2>Our Mission</h2>
+          <div className="values-content" data-aos="fade-right">
+            <h2 className='section-title'>Our Mission</h2>
             <p className="content">
               At Smart Services, we're transforming how people find and book local services. 
               Our platform bridges the gap between skilled professionals and customers who 
@@ -108,7 +108,7 @@ const About = () => {
           <div className="team-grid">
             <div className="team-member" data-aos="fade-up" data-aos-delay="100">
               <div className="member-photo photo-1"></div>
-              <h3>Alex Johnson</h3>
+              <h3>Shiva Kumar</h3>
               <p className="position">Founder & CEO</p>
               <div className="social-links">
                 <a href="#linkedin" aria-label="LinkedIn">in</a>
@@ -136,32 +136,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
-      {/* CTA Section with Gradient Background */}
-      {/* <section className="about-cta"> */}
-        {/* <div className="div-container">
-          <h2 data-aos="fade-up">Ready to experience smart service?</h2>
-          <div className="cta-buttons">
-            <Link 
-              to="/services" 
-              className="primary-btn"
-              data-aos="fade-up" 
-              data-aos-delay="100"
-            >
-              Find a Pro
-            </Link>
-            <Link 
-              to="/register" 
-              className="secondary-btn"
-              data-aos="fade-up" 
-              data-aos-delay="200"
-            >
-              Become a Pro
-            </Link>
-          </div>
-        </div> */}
-        {/* <div className="cta-pattern"></div>
-      </section> */}
     </div>
   );
 };

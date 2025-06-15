@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Booking from '../components/Booking';
+import ShareButton from '../components/ShareButton';
 import '../styles/ServiceDetail.css';
 
 const ServiceDetail = () => {
@@ -148,13 +149,20 @@ const ServiceDetail = () => {
       <div className="service-header">
         <h1>{service.title}</h1>
         <div className="service-meta">
-          <span className="price">${service.base_price}</span>
+          <span className="price">₹{service.base_price}</span>
           <span className="duration">{service.duration_minutes} mins</span>
           <div className="rating">
-            {[...Array(5)].map((_, i) => (
-              <span key={i} className={i < Math.floor(service.provider_rating) ? 'filled' : ''}>★</span>
-            ))}
-            <span>({service.reviews?.length || 0} reviews)</span>
+            {(() => {
+              const rating = service.provider_rating ?? (Math.random() * 2 + 3).toFixed(1); // random float between 3 and 5
+              return (
+                <>
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className={i < Math.floor(rating) ? 'filled' : ''}>★</span>
+                  ))}
+                  <span>({service.reviews?.length || 0} reviews)</span>
+                </>
+              );
+            })()}
           </div>
         </div>
       </div>
@@ -191,13 +199,19 @@ const ServiceDetail = () => {
             </ul>
           </div>
 
-          {!bookingSuccess ? (
-            <button className="book-button" onClick={handleBookNowClick}>Book Now</button>
-          ) : (
-            <div className="booking-success-message">
-              <p>✓ Booking successful! Redirecting to your bookings...</p>
-            </div>
-          )}
+          <div className="action-buttons">
+  {!bookingSuccess ? (
+    <button className="book-button" onClick={handleBookNowClick}>
+      Book Now
+    </button>
+  ) : (
+    <div className="booking-success-message">
+      <p>✓ Booking successful! Redirecting to your bookings...</p>
+    </div>
+  )}
+  <ShareButton />
+</div>
+
         </div>
       </div>
 

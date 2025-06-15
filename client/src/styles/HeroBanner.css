@@ -1,0 +1,236 @@
+/* Hero Banner Section */
+.hero-banner-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Embla Carousel Wrapper */
+.hero-banner-embla-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-banner-embla-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Slides */
+.embla__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.8s ease-in-out;
+}
+
+.embla__slide.active {
+  z-index: 2;
+}
+
+.hero-banner-slide-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.hero-banner-slide-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  padding: 40px;
+  z-index: 3;
+}
+
+.hero-banner-slide-title {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Main Overlay */
+.hero-banner-main-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 4;
+}
+
+/* Content */
+.hero-banner-content {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-banner-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  line-height: 1.2;
+}
+
+.hero-banner-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  opacity: 0.95;
+}
+
+.hero-banner-button-wrapper {
+  margin-top: 2rem;
+}
+
+/* Button Styles */
+.hero-button {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero-button:hover {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.hero-button:active {
+  transform: translateY(0);
+}
+
+/* Navigation Buttons */
+.hero-banner-prev-button-wrapper,
+.hero-banner-next-button-wrapper {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+}
+
+.hero-banner-prev-button-wrapper {
+  left: 2rem;
+}
+
+.hero-banner-next-button-wrapper {
+  right: 2rem;
+}
+
+.hero-banner-prev-button-wrapper .hero-button,
+.hero-banner-next-button-wrapper .hero-button {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 12px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-banner-prev-button-wrapper .hero-button:hover,
+.hero-banner-next-button-wrapper .hero-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.hero-banner-nav-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-banner-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-banner-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .hero-banner-slide-title {
+    font-size: 1.5rem;
+  }
+  
+  .hero-banner-prev-button-wrapper,
+  .hero-banner-next-button-wrapper {
+    display: none;
+  }
+  
+  .hero-banner-content {
+    padding: 0 16px;
+  }
+  
+  .hero-banner-slide-overlay {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-banner-title {
+    font-size: 2rem;
+  }
+  
+  .hero-banner-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-button {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+/* Animation for slide transitions */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.embla__slide.active {
+  animation: slideIn 0.8s ease-in-out;
+}

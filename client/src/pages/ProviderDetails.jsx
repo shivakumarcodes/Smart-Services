@@ -8,6 +8,17 @@ const ProviderDetails = () => {
   const [provider, setProvider] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [price, setPrice] = useState(0);
+
+  useEffect(() => {
+    setPrice(generatePrice());
+  }, []);
+
+  const generatePrice = () => {
+    const prices = [50, 100, 150];
+    const randomIndex = Math.floor(Math.random() * prices.length);
+    return prices[randomIndex];
+  };
 
   useEffect(() => {
     const fetchProviderDetails = async () => {
@@ -90,7 +101,7 @@ const ProviderDetails = () => {
                 <div key={service.service_id} className="service-card">
                   <h3>{service.service_name}</h3>
                   <p>{service.description}</p>
-                  <p className="price">${service.price}</p>
+                  <p className="price">${price}</p>
                 </div>
               ))}
             </div>

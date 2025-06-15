@@ -6,6 +6,7 @@ import CategoryCard from '../components/CategoryCard';
 import FeaturedServices from "../components/FeaturedServices";
 import SearchBar from "../components/SearchBar";
 import TestimonialCard from "../components/testimonialCard";
+import HeroBanner from "../components/HeroBanner";
 import '../styles/CategoriesCardsContainer.css';
 import '../styles/Home.css';
 
@@ -33,6 +34,7 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      <HeroBanner />
       {/* Hero Section */}
       <div 
         className="div-container"

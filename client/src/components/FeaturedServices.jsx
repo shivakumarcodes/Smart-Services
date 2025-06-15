@@ -21,7 +21,7 @@ const FeaturedServices = () => {
             limit: 6
           }
         });
-        setProviders(response.data.slice(0, 6));
+        setProviders(response.data.slice(0, 8));
         setLoading(false);
       } catch (err) {
         console.error('Error fetching featured providers:', err);

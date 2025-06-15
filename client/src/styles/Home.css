@@ -190,3 +190,7 @@
       min-height: auto;
     }
   }
+
+ .home-container{
+  width: 100% !important;
+ }

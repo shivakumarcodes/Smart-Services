@@ -1,7 +1,7 @@
 /* Hero Banner Section */
 .hero-banner-section {
   position: relative;
-  height: 100vh;
+  height: 75vh;
   width: 100%;
   overflow: hidden;
   display: flex;

@@ -33,7 +33,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-container">
+    <div className="home-container" style={{ maxWidth: '1300px'}}>
       <HeroBanner />
       {/* Hero Section */}
       <div 

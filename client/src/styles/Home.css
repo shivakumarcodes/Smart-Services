@@ -192,5 +192,7 @@
   }
 
  .home-container{
-  width: 100% !important;
+  width: 1350px !important;
+  background-color: white;
+  padding: 0.5rem;
  }

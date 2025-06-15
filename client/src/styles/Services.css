@@ -13,7 +13,7 @@
 
 .div-container {
   /* background-color: var(--bg-white); */
-  background: linear-gradient(135deg, #FFEDFA, #FFE4D9, #FFF9C4);
+  background: linear-gradient(135deg, #FFEDFA, #FFE4D9, #FFF9C4)!important;
   border-radius: var(--radius-xl);
   padding: 2rem;
   margin-bottom: 2rem;
@@ -134,10 +134,10 @@
 /* 🌈 Pastel Rainbow Background */
 .services-page {
   background: linear-gradient(135deg,
-    #ffedfa,  /* pastel pink */
+    #ead3e4,  /* pastel pink */
     #d1e7ff,  /* soft blue */
     #e0ffd6,  /* mint green */
-    #fff3cd   /* buttery yellow */
+    #c5b47e   /* buttery yellow */
   );
   padding: 2rem 1rem;
 }
@@ -145,7 +145,7 @@
 /* 🧩 Service Grid */
 .services-page .service-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1.5rem;
   margin-top: 1rem;
   width: 100%;
@@ -166,8 +166,8 @@
 }
 
 .services-page .service-card:hover {
-  transform: translateY(-10px) rotateZ(-1deg) scale(1.03);
-  border: 2px solid #c800ff;
+  transform: translateY(-10px) rotateZ(-1deg) scale(1);
+  border: 1px solid #1c0325;
   background: radial-gradient(circle at top left, #ffffff 60%, #f9ecff 100%);
   box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1),
               0 0 12px rgba(238, 200, 249, 0.4);

@@ -13,7 +13,7 @@
 }
 
 .category-card {
-  background-color: white;
+  background-color: #e5e7eb !important;
   border-radius: 16px;
   padding: 2.5rem 2rem;
   text-align: center;
@@ -30,10 +30,10 @@
 
 .category-card:hover {
   transform: translateY(-6px);
-  /* box-shadow: var(--shadow-lg); */
+  box-shadow: var(--shadow-lg);
   color: white;
   border-color: transparent;
-  box-shadow: #111827 2px 2px 1px 4px inset, var(--shadow-lg);
+  box-shadow: #111827 2px 2px 1px 10px inset, var(--shadow-lg);
 }
 
 /* Gradient overlay effect */

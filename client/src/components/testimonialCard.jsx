@@ -1,4 +1,3 @@
-import React from 'react';
 import '../styles/TestimonialCard.css';
 
 export default function TestimonialCard() {

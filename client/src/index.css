@@ -17,4 +17,9 @@ body {
   flex-direction: column;
 }
 
+.loading{
+  color: black !important;
+  text-shadow: whitesmoke 0px 0px 10px !important;
+}
+
  

@@ -28,7 +28,7 @@
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background-color: #98D2C0;
+  /* background-color: #98D2C0; */
   padding: 2rem;
   /* background-image: radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.05) 0%, rgba(255, 255, 255, 1) 90%); */
 }

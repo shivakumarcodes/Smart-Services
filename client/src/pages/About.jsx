@@ -103,7 +103,7 @@ const About = () => {
 
       {/* Team Section with Hover Effects */}
       <section className="team-section">
-        <div className="div-container">
+        <div className="team-container">
           <h2 className="section-title" data-aos="fade-up">Meet The Team</h2>
           <div className="team-grid">
             <div className="team-member" data-aos="fade-up" data-aos-delay="100">

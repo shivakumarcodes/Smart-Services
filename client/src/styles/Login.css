@@ -27,7 +27,7 @@
   align-items: center;
   width: 100%;
   min-height: 100vh;
-  background-color: #98D2C0;
+  /* background-color: #98D2C0; */
   padding: 2rem;
 }
 
@@ -184,10 +184,11 @@
 
 /* Guest Login Button */
 .guest-login-button {
-  width: 100%;
+  width: 96%;
   padding: 12px;
+  margin-left: 7px;
   margin-top: 10px;
-  background-color: green;
+  background-color: rgb(219, 85, 17);
   color: white;
   border: none;
   border-radius: 6px;
@@ -198,7 +199,7 @@
 }
 
 .guest-login-button:hover:not(:disabled) {
-  background-color: darkgreen;
+  background-color: rgb(169, 8, 8);
 }
 
 .guest-login-button:disabled {

@@ -7,6 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: black 0px 0px 20px rgba(0, 0, 0, 0.5);
+  border: white 2px solid;
 }
 
 /* Embla Carousel Wrapper */
@@ -178,6 +180,9 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .hero-banner-section {
+    height: 70vh;
+  }
   .hero-banner-title {
     font-size: 2.5rem;
   }
@@ -193,6 +198,10 @@
   .hero-banner-prev-button-wrapper,
   .hero-banner-next-button-wrapper {
     display: none;
+  }
+
+  .hero-button{
+    transform: translateY(-8);
   }
   
   .hero-banner-content {

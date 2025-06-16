@@ -15,9 +15,32 @@
 .profile-header {
   text-align: center;
   margin-bottom: 2.5rem;
-  padding-bottom: 1.5rem;
+  padding: 3rem 1.5rem; /* Increased padding for better spacing */
   border-bottom: 1px solid #e0e0e0;
+
+  background-image: url("https://images.unsplash.com/photo-1522199786355-c3c5a30a4cd4?auto=format&fit=crop&w=1600&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #ffffff; /* Ensures text is readable over the background */
+  position: relative;
 }
+
+.profile-header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: white; /* soft dark overlay */
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.profile-header * {
+  position: relative;
+  z-index: 1; /* ensures text stays above the overlay */
+}
+
 
 .profile-avatar,
 .profile-avatar-initial {

@@ -193,7 +193,7 @@
 
  .home-container{
   width: 100vw !important;
-  background-color: white;
+  /* background-color: white; */
   padding: 0.5rem;
  }
 
@@ -201,7 +201,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 15px !important;
-  padding: 2rem;
+  padding: 3rem;
   margin-bottom: 2rem;
   box-shadow: var(--shadow-sm);
   text-align: center;
@@ -218,6 +218,21 @@
   text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
 }
 
+.popular-categories-title{
+  color: #ffffff !important;
+}
+
+.popular-categories-title::after {
+  content: "";
+  display: block;
+  margin: 0.5rem auto 0;
+  width: 120px; /* Adjust as needed */
+  border-bottom: 4px dashed rgb(244, 240, 240);
+  text-shadow: black 5px 5px 20px rgba(0, 0, 0, 0.5);
+  /* box-shadow: black 0px 0px 20px rgba(0, 0, 0, 0.5); */
+}
+
+
 /* Blurred background */
 .popular-categories-container::before {
   content: "";
@@ -225,13 +240,13 @@
   top: 0; left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("https://static.vecteezy.com/system/resources/previews/012/600/038/non_2x/colorful-doodle-art-background-design-free-vector.jpg");
+  background-image: url("https://c8.alamy.com/comp/2J10XYT/ice-cream-hand-drawn-vector-doodles-illustration-2J10XYT.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   filter: blur(5px);
   z-index: 0;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 /* Inner black edge gradient effect */
@@ -258,4 +273,34 @@
 .testimonials-section{
   padding: 4rem;
   background-color: lightblue;
+  border-radius: 15px;
+}
+
+.div-container {
+  background-image: url("https://www.10000coders.in/JourneyAt10k/wave_grid_bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Optional: adds parallax-like effect */
+
+  border-radius: 15px !important;
+  padding: 2rem;
+  margin-bottom: 2rem;
+
+  /* Soft shadow inside */
+  box-shadow:
+    inset 0 0 80px rgba(50, 50, 50, 0.3),
+    0 4px 10px rgba(0, 0, 0, 0.1); /* Regular outer shadow for depth */
+
+  text-align: center;
+  border: 3px solid white;
+  position: relative; /* Needed for pseudo-element tricks if added later */
+}
+
+
+.div-container:hover{
+  border-color: white;
+   box-shadow:
+    inset 0 0 80px rgba(50, 50, 50, 0.3),
+    0 4px 10px rgba(0, 0, 0, 0.1);
 }

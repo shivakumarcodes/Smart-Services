@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import '../styles/HeroBanner.css';
 
 const services = [
@@ -25,14 +27,12 @@ const services = [
   }
 ];
 
-// Button component (if not using shadcn/ui)
 const Button = ({ children, onClick, className = '' }) => (
   <button className={`hero-button ${className}`} onClick={onClick}>
     {children}
   </button>
 );
 
-// Chevron Icons (if not using lucide-react)
 const ChevronLeft = ({ className = '' }) => (
   <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <polyline points="15,18 9,12 15,6"></polyline>
@@ -47,11 +47,18 @@ const ChevronRight = ({ className = '' }) => (
 
 const HeroBanner = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
   const navigate = useNavigate();
 
+  // Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+  }, []);
+
   const goToServices = () => {
-    // Navigate to the Profile page
     navigate('/services');
   };
 
@@ -84,10 +91,14 @@ const HeroBanner = () => {
                 transform: `translateX(${(index - currentSlide) * 100}%)`,
                 opacity: index === currentSlide ? 1 : 0
               }}
+              data-aos="fade-in"
+              data-aos-delay={index * 100}
             >
               <div className="hero-banner-slide-image" style={{ backgroundImage: `url(${service.image})` }}>
                 <div className="hero-banner-slide-overlay">
-                   <h3 className="hero-banner-slide-title">{service.name}</h3>
+                   <h3 className="hero-banner-slide-title" data-aos="fade-up" data-aos-delay="300">
+                     {service.name}
+                   </h3>
                 </div>
               </div>
             </div>
@@ -97,26 +108,26 @@ const HeroBanner = () => {
       
       <div className="hero-banner-main-overlay"></div>
       <div className="hero-banner-content">
-        <h1 className="hero-banner-title">
+        <h1 className="hero-banner-title" data-aos="fade-down" data-aos-delay="200">
           Your Trusted Service Marketplace
         </h1>
-        <p className="hero-banner-subtitle">
+        <p className="hero-banner-subtitle" data-aos="fade-up" data-aos-delay="300">
           Connect with skilled professionals for any job, big or small. From electricians to beauticians, find the help you need, right when you need it.
         </p>
-        <div className="hero-banner-button-wrapper">
+        <div className="hero-banner-button-wrapper" data-aos="zoom-in" data-aos-delay="400">
           <Button onClick={goToServices}>
             Find a Service
           </Button>
         </div>
       </div>
       
-      <div className="hero-banner-prev-button-wrapper">
+      <div className="hero-banner-prev-button-wrapper" data-aos="fade-right" data-aos-delay="500">
         <Button onClick={scrollPrev}>
           <ChevronLeft className="hero-banner-nav-icon" />
         </Button>
       </div>
       
-      <div className="hero-banner-next-button-wrapper">
+      <div className="hero-banner-next-button-wrapper" data-aos="fade-left" data-aos-delay="500">
         <Button onClick={scrollNext}>
           <ChevronRight className="hero-banner-nav-icon" />
         </Button>

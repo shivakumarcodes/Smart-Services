@@ -6,24 +6,30 @@
   padding: 2rem 1.5rem !important;
   box-sizing: border-box;
   width: 1350px;
-  background: white;
+  background: #FFEDFA !important;
   border: 2px solid #f0f0f0;
-  /* border-radius: 15px; */
+  border-radius: 15px;
 }
 
 .div-container {
   /* background-color: var(--bg-white); */
-  background: linear-gradient(135deg, #FFEDFA, #FFE4D9, #FFF9C4)!important;
-  border-radius: var(--radius-xl);
+  background-image: url("https://www.10000coders.in/JourneyAt10k/wave_grid_bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Optional: adds parallax-like effect */
+  /* background: linear-gradient(155deg, #f5b4e2, #e1b09c)!important; */
+  border-radius: 15px !important;
   padding: 2rem;
   margin-bottom: 2rem;
   box-shadow: var(--shadow-sm);
   text-align: center;
   border-color: white;
+  border-width: 2px;
 }
 
 .div-container:hover{
-  border-color: black;
+  border-color: var(main-color);
 }
 
 /* Search container with higher specificity */

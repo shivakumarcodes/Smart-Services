@@ -62,7 +62,7 @@ const Home = () => {
 
       {/* Categories Section */}
       <div data-aos="fade-up" data-aos-delay="50">
-        <div className="div-container">
+        <div className="popular-categories-container">
               <h2 className="categories-title">Popular Categories</h2>
               <div className="categories-grid">
                 {categories.map((category, index) => (

@@ -77,7 +77,7 @@ export default function CategorySeparatePage() {
 
   const formatPrice = (price) => {
     const numericPrice = Number(price);
-    return isNaN(numericPrice) ? '$0.00' : `$${numericPrice.toFixed(2)}`;
+    return isNaN(numericPrice) ? '₹0.00' : `₹${numericPrice.toFixed(2)}`;
   };
 
   const handlePageChange = (pageNumber) => {

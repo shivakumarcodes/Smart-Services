@@ -192,7 +192,66 @@
   }
 
  .home-container{
-  width: 1350px !important;
+  width: 100vw !important;
   background-color: white;
   padding: 0.5rem;
  }
+
+.popular-categories-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px !important;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  border: 2px solid white;
+  z-index: 1;
+}
+
+/* Header styling */
+.popular-categories-container h2 {
+  font-size: 3rem;
+  margin: 1.5rem;
+  position: relative;
+  color: #111827;
+  text-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Blurred background */
+.popular-categories-container::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/012/600/038/non_2x/colorful-doodle-art-background-design-free-vector.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(5px);
+  z-index: 0;
+  opacity: 0.5;
+}
+
+/* Inner black edge gradient effect */
+.popular-categories-container::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 80px rgba(0, 0, 0, 0.3),
+    inset 0 0 40px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+}
+
+/* Ensure content stays above everything */
+.popular-categories-container > * {
+  position: relative;
+  z-index: 2;
+}
+

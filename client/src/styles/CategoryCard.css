@@ -30,9 +30,10 @@
 
 .category-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+  /* box-shadow: var(--shadow-lg); */
   color: white;
   border-color: transparent;
+  box-shadow: #111827 2px 2px 1px 4px inset, var(--shadow-lg);
 }
 
 /* Gradient overlay effect */

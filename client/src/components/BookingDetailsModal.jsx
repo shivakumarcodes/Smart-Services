@@ -25,7 +25,7 @@ const BookingDetailsModal = ({ booking, onClose, onConfirm }) => {
                 {booking.paymentStatus}
               </span>
             </p>
-            <p><strong>Amount:</strong> ${booking.amount.toFixed(2)}</p>
+            <p><strong>Amount:</strong> ₹{booking.amount.toFixed(2)}</p>
             {booking.address && (
               <div className="booking-address">
                 <h4>Service Address:</h4>

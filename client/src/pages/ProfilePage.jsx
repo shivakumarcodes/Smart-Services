@@ -394,7 +394,7 @@ const ProfilePage = () => {
                     )}
                     <h4>{service.title}</h4>
                     <p className="service-category">{service.category}</p>
-                    <p className="service-price">${service.base_price?.toFixed(2) || '0.00'}</p>
+                    <p className="service-price">₹{service.base_price?.toFixed(2) || '0.00'}</p>
                     {service.duration_minutes && (
                       <p className="service-duration">{service.duration_minutes} minutes</p>
                     )}
@@ -423,7 +423,7 @@ const ProfilePage = () => {
                   <p><strong>Provider:</strong> {booking.provider_name || 'Unknown Provider'}</p>
                   <p><strong>Date:</strong> {formatDate(booking.booking_date)}</p>
                   <p><strong>Address:</strong> {booking.address || 'Not specified'}</p>
-                  <p><strong>Amount:</strong> ${booking.total_amount?.toFixed(2) || '0.00'}</p>
+                  <p><strong>Amount:</strong> ₹{booking.total_amount?.toFixed(2) || '0.00'}</p>
                   <p><strong>Payment:</strong> 
                     <span className={`payment-status ${booking.payment_status || 'pending'}`}>
                       {booking.payment_status || 'pending'}

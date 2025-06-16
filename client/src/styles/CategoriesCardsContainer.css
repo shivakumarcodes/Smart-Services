@@ -124,7 +124,7 @@
   text-align: center;
   font-size: clamp(2rem, 5vw, 2.75rem); /* Responsive sizing */
   margin-bottom: 2.5rem;
-  color: var(--text-primary);
+  color: #0a040f;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 700;
   position: relative;
@@ -132,6 +132,10 @@
   line-height: 1.2;
   letter-spacing: -0.015em;
   animation: fadeSlideIn 0.7s ease-out forwards;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 2px 2px rgba(179, 124, 124, 0.796);
+  line-height: 1.2;
 }
 
 .categories-title::after {
@@ -288,6 +292,7 @@
   animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   opacity: 0;
   transform: translateY(20px);
+  text-shadow: #4a5568;
 }
 
 @keyframes fadeInUp {

@@ -81,7 +81,7 @@ const Booking = ({
                 <h4>{service.title}</h4>
                 <div className="service-details">
                   <p className="provider-name">By {service.provider_name}</p>
-                  <p className="service-price">${service.base_price}</p>
+                  <p className="service-price">₹{service.base_price}</p>
                   <p className="service-duration">{service.duration_minutes} mins</p>
                 </div>
               </div>
@@ -132,11 +132,11 @@ const Booking = ({
                 <h4>Booking Summary</h4>
                 <div className="summary-row">
                   <span>Service Fee:</span>
-                  <span>${service.base_price}</span>
+                  <span>₹{service.base_price}</span>
                 </div>
                 <div className="summary-row total">
                   <span>Total:</span>
-                  <span>${service.base_price}</span>
+                  <span>₹{service.base_price}</span>
                 </div>
               </div>
               

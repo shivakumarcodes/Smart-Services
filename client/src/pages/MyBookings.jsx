@@ -152,7 +152,7 @@ const MyBookings = () => {
               <div className="booking-details">
                 <p><strong>Provider:</strong> {booking.provider_name}</p>
                 <p><strong>Date:</strong> {new Date(booking.booking_date).toLocaleString()}</p>
-                <p><strong>Amount:</strong> ${Number(booking.total_amount || 0).toFixed(2)}</p>
+                <p><strong>Amount:</strong> ₹{Number(booking.total_amount || 0).toFixed(2)}</p>
                 {booking.payment_status && (
                   <p><strong>Payment:</strong> 
                     <span className={`payment-status ${booking.payment_status.toLowerCase()}`}>

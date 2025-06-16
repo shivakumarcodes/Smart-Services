@@ -146,7 +146,7 @@
   transform: translateX(-50%);
   width: 100px;
   height: 0;
-  border-bottom: 2px dashed #000000;
+  border-bottom: 4px dashed #181616;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -196,6 +196,7 @@
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
   border-color: var(--primary-light);
+  border: 3px solid #16a085 !important;
 }
 
 /* Gradient Accent Bar Animation */

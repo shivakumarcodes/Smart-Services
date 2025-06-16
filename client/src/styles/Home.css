@@ -227,8 +227,8 @@
   display: block;
   margin: 0.5rem auto 0;
   width: 120px; /* Adjust as needed */
-  border-bottom: 4px dashed rgb(244, 240, 240);
-  text-shadow: black 5px 5px 20px rgba(0, 0, 0, 0.5);
+  border-bottom: 4px dashed white;
+  text-shadow: black 5px 10px 20px rgba(0, 0, 0, 0.5) !important;
   /* box-shadow: black 0px 0px 20px rgba(0, 0, 0, 0.5); */
 }
 

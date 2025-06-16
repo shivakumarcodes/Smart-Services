@@ -178,7 +178,7 @@
 
 /* Category Card Styling */
 .category-card {
-  background: #ffffff;
+  background: #f3f0f0 !important;
   border-radius: 16px;
   padding: 2rem 1.5rem;
   text-align: center;
